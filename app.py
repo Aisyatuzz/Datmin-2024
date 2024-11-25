@@ -4,6 +4,15 @@ from nltk.tag import CRFTagger
 from textblob import TextBlob
 import plotly.express as px
 import urllib.request  # Untuk mengunduh file
+import os
+import subprocess
+
+# Cek apakah PyCRFSuite terinstal
+try:
+    import pycrfsuite
+except ImportError:
+    subprocess.run(["pip", "install", "python-crfsuite"])
+    import pycrfsuite
 
 # Unduh model CRF jika belum ada
 MODEL_URL = "https://raw.githubusercontent.com/Aisyatuzz/Datmin-2024/all_indo_man_tag_corpus_model.crf.tagger"
